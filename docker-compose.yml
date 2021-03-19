@@ -1,0 +1,21 @@
+# yaml 配置
+version: '3'
+services:
+  web:
+    build: 
+      context: ./web
+      dockerfile: Dockerfile-web
+    ports:
+     - "5000:5000"
+    depends_on:
+      - redis
+  mariadb:
+    build: 
+      context: ./mysql
+      dockerfile: DockerFile-mysql
+      ports:
+        - "3360:3360"
+  redis:
+    image: "redis:alpine"
+      ports:
+        - "6379:6379"
