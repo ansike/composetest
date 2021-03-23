@@ -1,5 +1,5 @@
 var express = require("express");
-var mysqlLink = require("./mysql-link.js");
+// var mysqlLink = require("./mysql-link.js");
 var { setKey, getKey } = require("./redis-link.js");
 var app = express();
 let a = 1;
@@ -11,7 +11,7 @@ app.get("/", async function (req, res) {
   await setKey("REDIS", a);
   a++
   res.send("Hello World!");
-  mysqlLink();
+  // mysqlLink();
   const resd = await getKey('REDIS');
   console.log(resd);
 });

@@ -1,5 +1,8 @@
 let redis = require("redis"),
-  client = redis.createClient();
+  client = redis.createClient({
+    host: process.env.redis_host || "127.0.0.1",
+    prot: 6379,
+  });
 
 client.on("error", function (err) {
   console.log("Error " + err);
